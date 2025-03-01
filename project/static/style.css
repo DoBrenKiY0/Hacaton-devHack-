@@ -1,0 +1,380 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Лёгкий фон для всего сайта */
+}
+
+header {
+    background: linear-gradient(90deg, #333, #576574); /* Градиент для шапки */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Плавный переход цвета при наведении */
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Изменяем цвет ссылок при наведении */
+}
+
+main {
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(180deg, #ffffff, #eaf2f8); /* Градиент для hero секции */
+    border-radius: 10px; /* Скруглённые углы */
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Тень сверху */
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Меню вертикально на мобильных */
+    }
+    nav ul li {
+        margin: 10px 0; /* Увеличиваем отступы между пунктами меню */
+    }
+    .hero {
+        padding: 30px 10px; /* Уменьшаем отступы для мобильных */
+    }
+    h1 {
+        font-size: 24px; /* Уменьшаем размер заголовка */
+    }
+    p {
+        font-size: 16px; /* Уменьшаем размер текста */
+    }
+}
+
+/* Десктопная версия */
+@media (min-width: 769px) {
+    .hero {
+        padding: 100px 20px; /* Увеличиваем отступы для десктопов */
+    }
+    h1 {
+        font-size: 36px; /* Увеличиваем размер заголовка */
+    }
+    p {
+        font-size: 18px; /* Увеличиваем размер текста */
+    }
+}
+
+/* Стиль для кнопки */
+.btn {
+    display: inline-block; /* Позволяет кнопке быть частью текстового потока */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #ffcc00; /* Фон кнопки */
+    color: #333; /* Цвет текста */
+    text-decoration: none; /* Убираем подчёркивание у ссылки */
+    border-radius: 5px; /* Скруглённые углы */
+    font-weight: bold; /* Жирный шрифт */
+    transition: background-color 0.3s ease; /* Плавный переход цвета при наведении */
+}
+
+/* Изменение цвета при наведении на кнопку */
+.btn:hover {
+    background-color: #e6b800; /* Более тёмный оттенок при наведении */
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+/* Огромная куча код для красивого окошка отправки сообщения*/
+/* Стили для секции контактов */
+.contact-section {
+    max-width: 600px;
+    margin: 50px auto; /* Центрируем секцию по горизонтали */
+    padding: 20px;
+    background-color: #f9f9f9; /* Лёгкий фон для формы */
+    border-radius: 10px; /* Скруглённые углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+.contact-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-section p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.contact-section a {
+    color: #ffcc00; /* Яркий цвет для ссылки */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline; /* Подчёркивание при наведении */
+}
+
+/* Стили для формы */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ffcc00; /* Яркая граница при фокусе */
+    outline: none;
+}
+
+/* Стиль для кнопки отправки */
+.contact-form .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background-color: #576574; /* Более тёмный оттенок при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 15px;
+    }
+
+    .contact-form .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+
+/* Стили для вертикальной ленты */
+.post-feed {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение */
+    gap: 20px; /* Отступ между постами */
+    padding: 20px;
+}
+
+.post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center; /* Центрируем содержимое */
+    max-width: 600px; /* Максимальная ширина карточки */
+    margin: 0 auto; /* Центрируем карточку на странице */
+}
+
+.post-images {
+    display: flex;
+    justify-content: center; /* Центрируем изображения */
+    align-items: center; /* Центрируем изображения */
+    overflow: hidden; /* Обрезаем лишнее */
+}
+
+.single-image {
+    width: 100%; /* Занимает всю ширину карточки */
+    height: auto; /* Сохраняет пропорции */
+    border-radius: 5px;
+}
+
+.image-row {
+    display: flex;
+    gap: 10px; /* Отступ между изображениями */
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    padding: 10px;
+}
+
+.pair-image {
+    max-width: calc(50% - 5px); /* Каждое изображение занимает половину пространства */
+    height: auto; /* Сохраняем пропорции */
+    object-fit: cover; /* Обрезаем изображения при необходимости */
+    border-radius: 5px;
+}
+
+.post-metrics {
+    padding: 5px;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .post-item {
+        max-width: 100%; /* На маленьких экранах карточки занимают всю ширину */
+    }
+
+    .pair-image {
+        max-width: 100%; /* На маленьких экранах изображения занимают всю ширину */
+    }
+}
+
+/* Стили для блока сортировки */
+.sort-buttons {
+    display: flex; /* Используем Flexbox */
+    gap: 15px; /* Отступ между кнопками */
+    justify-content: center; /* Выравниваем по центру */
+    margin-bottom: 20px; /* Отступ от заголовка */
+}
+
+.sort-btn {
+    background: linear-gradient(90deg, #f9f9f9, #eaeaea); /* Градиентный фон */
+    color: #333; /* Темный текст */
+    padding: 10px 25px; /* Увеличиваем внутренние отступы */
+    border: 1px solid #ddd; /* Серая граница */
+    border-radius: 8px; /* Скругленные углы */
+    font-size: 14px; /* Размер шрифта */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    transition: background 0.3s ease, transform 0.2s ease; /* Добавляем плавную анимацию */
+    cursor: pointer; /* Изменяем курсор на указатель */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Более заметная тень */
+}
+
+.sort-btn:hover {
+    background: linear-gradient(90deg, #ffeb3b, #ffcc00); /* Активный градиент при наведении */
+    transform: scale(1.05); /* Немного увеличиваем кнопку при наведении */
+}
+
+.sort-btn.active {
+    background: linear-gradient(90deg, #ffcc00, #ffc107); /* Яркий градиент для активной кнопки */
+    color: #333; /* Темный текст */
+    border-color: #ffcc00; /* Желтая граница */
+    font-weight: bold; /* П加пapделим жирным шрифтом */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более выраженная тень для активной кнопки */
+}
+
+/* Стили для блока сортировки */
+.sort-buttons {
+    display: flex;
+    gap: 15px; /* Отступ между кнопками */
+    justify-content: center; /* Выравниваем кнопки по центру */
+    margin-bottom: 20px; /* Отступ от заголовка */
+}
+
+/* Стили для страницы Telegram-бот */
+.bot-info {
+    background: linear-gradient(90deg, #eaf2f8, #ffffff); /* Градиентный фон */
+    padding: 30px; /* Внутренние отступы */
+    border-radius: 15px; /* Скругленные углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    text-align: center; /* Центрируем текст */
+    max-width: 600px; /* Ограничиваем ширину блока */
+    margin: 0 auto; /* Центрируем блок на странице */
+}
+
+.bot-info h1 {
+    font-size: 28px; /* Размер заголовка */
+    color: #333; /* Темный цвет текста */
+    margin-bottom: 20px; /* Отступ от списка */
+}
+
+.bot-info ul {
+    list-style-type: disc; /* Стиль маркеров списка */
+    padding-left: 20px; /* Отступ для маркеров */
+    margin-bottom: 20px; /* Отступ от ссылки */
+    color: #555; /* Серый цвет текста */
+}
+
+/* Ссылка на бота */
+.bot-link {
+    background-color: #007bff; /* Голубой цвет фона */
+    color: white; /* Белый текст */
+    padding: 12px 24px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 16px; /* Размер шрифта */
+    display: inline-block; /* Делаем ссылку блочной */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Добавляем плавную анимацию */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+.bot-link:hover {
+    background-color: #0056b3; /* Темный голубой цвет при наведении */
+    transform: scale(1.05); /* Немного увеличиваем кнопку */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .bot-features {
+        flex-direction: column; /* Размещаем карточки вертикально */
+        align-items: center; /* Центрируем их */
+    }
+
+    .feature-item {
+        max-width: 400px; /* Ограничиваем ширину карточек */
+        margin-bottom: 20px; /* Добавляем отступ между карточками */
+    }
+}
+

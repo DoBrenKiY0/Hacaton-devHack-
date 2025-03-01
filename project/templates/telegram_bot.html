@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="hero">
+        <h1 style="color: rgb(0, 0, 0)">Telegram-бот для анализа мемов</h1>
+
+        <!-- Основная информация о боте -->
+        <div class="bot-info">
+            <div class="bot-icon">
+                <i class="fa-brands fa-telegram fa-3x"></i> <!-- Иконка Telegram -->
+            </div>
+            <p>
+                Наш Telegram-бот <b>@ana_mem_bot</b> поможет вам:
+                <ul>
+                    <li>Анализировать содержимое мемов (текст, объекты, эмоции).</li>
+                    <li>Сортировать мемы по категориям (например, юмор, животные, политика).</li>
+                    <li>Определять актуальность мемов.</li>
+                </ul>
+            </p>
+            <a href="https://t.me/ana_mem_bot" target="_blank" class="bot-link">
+                <i class="fa-brands fa-telegram"></i> Перейти к боту
+            </a>
+        </div>
+    </section>
+{% endblock %}

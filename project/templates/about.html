@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Баннер (полностью картинка) -->
+    <div class="banner" style="width: 100%; height: 600px; position: relative; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+        <img src="https://sun9-22.userapi.com/c849028/v849028694/b8a43/0RPOCzA3QqQ.jpg" alt="Баннер" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="banner-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
+        <div class="banner-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+            <h1 style="color: #f8f8f8; font-size: 3.5em; margin-bottom: 20px; animation: fadeInDown 1s ease-out;">Добро пожаловать!</h1>
+            <p style="font-size: 1.5em; animation: fadeInUp 1.5s ease-out;">Мы создаем лучшие веб-приложения для вас.</p>
+        </div>
+    </div>
+
+    <!-- Секция "О нас" -->
+    <section class="about-section" style="background: url('/static/about-bg.jpg') no-repeat center/cover; padding: 100px 20px; position: relative;">
+        <div class="about-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106, 17, 203, 0.8);"></div>
+        <div style="position: relative; z-index: 2; background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 20px; max-width: 800px; margin: 0 auto; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+            <h1 style="font-size: 2.5em; color: #6a11cb; margin-bottom: 20px; animation: fadeInLeft 1s ease-out;">О нас</h1>
+            <p style="font-size: 1.2em; line-height: 1.6; color: #333; animation: fadeInRight 1.5s ease-out;">Мы — команда профессионалов, работающих над созданием лучших веб-приложений. Наш опыт и знания позволяют нам реализовывать проекты любой сложности.</p>
+        </div>
+    </section>
+
+    <!-- Секция "Наша команда" -->
+    <section class="team-section" style="padding: 100px 20px; background: #f8f9fa; text-align: center;">
+        <h2 style="font-size: 2.5em; color: #6a11cb; margin-bottom: 40px; animation: fadeInDown 1s ease-out;">Наша команда</h2>
+        <div class="team-cards-container" style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 30px; overflow-x: auto; padding-bottom: 20px;">
+            <!-- Карточка сотрудника 1 -->
+            <div class="team-card" style="animation: fadeInUp 1s ease-out;">
+                <div class="team-card-img" style="background-image: url(https://sun9-51.userapi.com/impg/-fMUNfPZS920SxbK3Ou7MlHHE_dXa42vjnnFJw/bcw_6T7wKe4.jpg?size=576x1280&quality=95&sign=992f71576d68ee0324beb74326647349&type=album);"></div>
+                <h3 style="color: #62239e; "margin: 20px 0 10px; font-size: 1.5em;>Прокопьев Вадим</h3>
+                <p style="color: #6a11cb; font-weight: bold;">Frontend-разработчик и Дизайнер</p>
+                <p>Занимался созданием красивых и удобных интерфейсов этого сайта.</p>
+            </div>
+
+            <!-- Карточка сотрудника 2 -->
+            <div class="team-card" style="animation: fadeInUp 1.2s ease-out;">
+                <div class="team-card-img" style="background-image: url('https://via.placeholder.com/150');"></div>
+                <h3 style="color: #62239e; "margin: 20px 0 10px; font-size: 1.5em;>Сенюта Иван</h3>
+                <p style="color: #6a11cb; font-weight: bold;">Главный Мемолог</p>
+                <p>Занимался оцениваем каждого мема.</p>
+            </div>
+
+            <!-- Карточка сотрудника 3 -->
+            <div class="team-card" style="animation: fadeInUp 1.4s ease-out;">
+                <div class="team-card-img" style="background-image: url('https://via.placeholder.com/150');"></div>
+                <h3 style="color: #62239e; "margin: 20px 0 10px; font-size: 1.5em;>Розин Егор</h3>
+                <p style="color: #6a11cb; font-weight: bold;">Backend-разработчик</p>
+                <p>Отвечает за серверную часть и логику сайта.</p>
+            </div>
+
+            <!-- Карточка сотрудника 4 -->
+            <div class="team-card" style="animation: fadeInUp 1.6s ease-out;">
+                <div class="team-card-img" style="background-image: url(https://sun9-15.userapi.com/impg/F7vFOYEYcxrKUttaauMd5W_6G4IAkal6Dr2dpA/jtF7zpmRu14.jpg?size=434x1280&quality=95&sign=1af351136e28e8eace2403dd5168db08&type=album);"></div>
+                <h3 style="color: #62239e; "margin: 20px 0 10px; font-size: 1.5em;> Ванюков Матвей</h3>
+                <p style="color: #6a11cb; font-weight: bold;">Бот мейкер</p>
+                <p>Занимался созданием и настройкой бота в телеграм.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Стили для анимаций и оформления -->
+    <style>
+        /* Анимация для карточек команды */
+        .team-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            transition: all 0.3s ease;
+            flex-shrink: 0; /* Предотвращает сжатие карточек */
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-card-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        /* Уникальные изображения при наведении для каждого сотрудника */
+        .team-card:nth-child(1):hover .team-card-img {
+            background-image: url(https://avatars.mds.yandex.net/i?id=26eba85c18ea751fb7841d6521c2ba27_l-13592131-images-thumbs&n=13) !important;
+        }
+
+        .team-card:nth-child(2):hover .team-card-img {
+            background-image: url(https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/4e2e3cba-3381-46ba-af5a-35c65ef4d093/1920x) !important; 
+        }
+
+        .team-card:nth-child(3):hover .team-card-img {
+            background-image: url(https://yt3.googleusercontent.com/ytc/AOPolaS34uzLwuHOGU_6poESOEGfQ-ZShvCnUqTkrlo0=s900-c-k-c0x00ffffff-no-rj) !important; 
+        }
+
+        .team-card:nth-child(4):hover .team-card-img {
+            background-image: url(https://i.pinimg.com/736x/ed/d1/48/edd1484dcc14ec85142c17a86e2a965f.jpg) !important; 
+        }
+
+        /* Анимации для появления элементов */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Стили для горизонтального скролла карточек */
+        .team-cards-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        /* Убираем стандартный скроллбар */
+        .team-cards-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .team-cards-container::-webkit-scrollbar-thumb {
+            background: #6a11cb;
+            border-radius: 4px;
+        }
+
+        .team-cards-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        /* Дополнительные улучшения */
+        .banner {
+            position: relative;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .about-section {
+            position: relative;
+        }
+
+        .about-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(106, 17, 203, 0.8);
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,345 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Кнопка для смены темы -->
+    <div class="fade-in" style="text-align: right; padding: 20px;">
+        <button id="theme-toggle" style="background: #6a11cb; color: white; border: none; padding: 12px 24px; border-radius: 30px; cursor: pointer; font-size: 1em; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+            🌙 Тёмная тема
+        </button>
+    </div>
+
+    <!-- Баннер с переливающимся фоном и закругленными углами -->
+    <div class="banner fade-in">
+        <div class="banner-content">
+            <h1 class="banner-title">Добро пожаловать на наш сайт!</h1>
+            <p class="banner-subtitle">Мы рады видеть вас здесь. Узнайте больше о нас ниже!</p>
+        </div>
+    </div>
+
+    <!-- Секция "О сайте" -->
+    <div class="fade-in" style="position: relative; overflow: hidden; padding: 60px; background: rgba(255, 255, 255, 0.95); margin: 20px; border-radius: 20px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
+        <!-- Фиолетовый круг с текстом -->
+        <div style="position: absolute; left: 50px; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; background: #6e11cbdb; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-align: center; padding: 20px; color: white; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+            <div>
+                <h2 style="margin: 0; font-size: 1.8em; font-weight: bold;">Для чего этот сайт?</h2>
+                <p style="margin: 15px 0 0; font-size: 1.1em; opacity: 0.9;">Этот сайт создан для того, чтобы помочь вам найти самые актуальные мемы!.</p>
+            </div>
+        </div>
+
+        <!-- Картинка (уменьшена в два раза) -->
+        <div style="margin-left: 400px; text-align: center;">
+            <img src="https://static.life.ru/posts/2018/06/1129657/a571cfddd00bce6d1c54a174156a25f7.jpg" alt="О сайте" style="width: 50%; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+        </div>
+    </div>
+
+    <!-- Секция "Преимущества" -->
+    <div class="fade-in" style="background: #f8f9fa; padding: 80px 20px; border-radius: 20px; margin: 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5em; color: #333; margin-bottom: 50px; font-weight: bold;">Наши преимущества</h2>
+            <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+                <!-- Карточка 1 -->
+                <div class="card">
+                    <div class="icon" style="background: #6a11cb; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 2em; color: white;">✨</span>
+                    </div>
+                    <h3 style="font-size: 1.5em; color: #333; margin-bottom: 15px;">Простота</h3>
+                    <p style="font-size: 1.1em; color: #666; line-height: 1.6;">Интуитивно понятный интерфейс для всех пользователей.</p>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="card">
+                    <div class="icon" style="background: #6a11cb; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 2em; color: white;">🔒</span>
+                    </div>
+                    <h3 style="font-size: 1.5em; color: #333; margin-bottom: 15px;">Надежность</h3>
+                    <p style="font-size: 1.1em; color: #666; line-height: 1.6;">Мы гарантируем стабильную работу и безопасность данных.</p>
+                </div>
+                <!-- Карточка 3 -->
+                <div class="card">
+                    <div class="icon" style="background: #6a11cb; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 2em; color: white;">📞</span>
+                    </div>
+                    <h3 style="font-size: 1.5em; color: #333; margin-bottom: 15px;">Поддержка</h3>
+                    <p style="font-size: 1.1em; color: #666; line-height: 1.6;">Наша команда всегда готова помочь вам.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Новая секция: "Кому подойдет этот сайт?" -->
+    <div class="fade-in" style="padding: 80px 20px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border-radius: 20px; margin: 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 50px; font-weight: bold;">Кому подойдет этот сайт?</h2>
+            <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+                <!-- Блок 1 -->
+                <div class="feature-block">
+                    <div class="icon" style="background: rgba(255, 255, 255, 0.1); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 2em;">👩‍💻</span>
+                    </div>
+                    <h3 style="font-size: 1.5em; text-align: center; margin-bottom: 15px;">Родители и Взрослые</h3>
+                    <p style="font-size: 1.1em; text-align: center; opacity: 0.9; line-height: 1.6;">Для тех, кто хочет лучше понять язык и интересы молодёжи. Сайт по анализу мемов может стать своего рода «переводчиком» между поколениями.</p>
+                </div>
+                <!-- Блок 2 -->
+                <div class="feature-block">
+                    <div class="icon" style="background: rgba(255, 255, 255, 0.1); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 2em;">🏢</span>
+                    </div>
+                    <h3 style="font-size: 1.5em; text-align: center; margin-bottom: 15px;"> Преподаватели и Учителя</h3>
+                    <p style="font-size: 1.1em; text-align: center; opacity: 0.9; line-height: 1.6;">Преподаватели могут использовать мемы для объяснения сложных тем или привлечения внимания учеников. Разбор мемов позволяет ученикам научиться быстрее усваивать информацию</p>
+                </div>
+                <!-- Блок 3 -->
+                <div class="feature-block">
+                    <div class="icon" style="background: rgba(255, 255, 255, 0.1); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 2em;">🎓</span>
+                    </div>
+                    <h3 style="font-size: 1.5em; text-align: center; margin-bottom: 15px;">Студентам</h3>
+                    <p style="font-size: 1.1em; text-align: center; opacity: 0.9; line-height: 1.6;">Для тех, кто изучает медиаискусство, социологию, культурологию или лингвистику. Исследовать использование юмора, сарказма, метафор и других речевых фигур в мемах</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция "Контакты" -->
+    <div class="fade-in" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px; border-radius: 20px; background: rgba(255, 255, 255, 0.95); margin: 20px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; font-size: 2.5em; color: #333; margin-bottom: 40px; font-weight: bold;">Свяжитесь с нами</h2>
+        <div style="text-align: center;">
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 30px; line-height: 1.6;">Мы всегда рады вашим вопросам и предложениям. Напишите нам, и мы свяжемся с вами в ближайшее время.</p>
+            <a href="mailto:info@example.com" class="btn" style="background: #6a11cb; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-size: 1.1em; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">Написать нам</a>
+        </div>
+    </div>
+
+    <!-- Скрипт для переключения темы -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Проверяем, есть ли сохранённая тема в localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            updateButtonText();
+        }
+
+        // Переключение темы
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            updateButtonText();
+            // Сохраняем тему в localStorage
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark-theme' : '');
+        });
+
+        // Обновление текста кнопки
+        function updateButtonText() {
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️ Светлая тема';
+            } else {
+                themeToggle.textContent = '🌙 Тёмная тема';
+            }
+        }
+    </script>
+
+    <!-- Стили для плавной загрузки и анимации -->
+    <style>
+        /* Анимация появления элементов */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Стили для тёмной темы */
+        .dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dark-theme .card {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        .dark-theme .feature-block {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .dark-theme .btn {
+            background-color: #6a11cb;
+            color: #ffffff;
+        }
+
+        .dark-theme h1,
+        .dark-theme h2,
+        .dark-theme h3,
+        .dark-theme p {
+            color: #ffffff;
+        }
+
+        .dark-theme .icon {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Анимация для кнопки */
+        #theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+        }
+
+        /* Стили для карточек */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Стили для новой секции */
+        .feature-block {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-block:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Стили для кнопки */
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Стили для переливающегося баннера */
+        .banner {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc, #ff6f61, #6a11cb);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px; /* Закругленные углы */
+        }
+
+        /* Анимация для переливающегося фона */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Контент баннера */
+        .banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Заголовок баннера */
+        .banner-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Подзаголовок баннера */
+        .banner-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-top: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Анимация появления текста */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Эффект частиц для баннера */
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            animation: particles 5s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes particles {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-200px);
+            }
+        }
+    </style>
+
+    <!-- Скрипт для плавной загрузки -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const checkVisibility = () => {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementBottom = element.getBoundingClientRect().bottom;
+
+                    // Если элемент виден на экране
+                    if (elementTop < window.innerHeight && elementBottom > 0) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+
+            // Проверяем видимость элементов при загрузке и прокрутке
+            window.addEventListener('load', checkVisibility);
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Баннер (полностью картинка) -->
+    <div style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="https://sun1-97.userapi.com/impf/MQcDTInaIaAfXqSZil8va7oe-8cgX_uBcVI3pQ/XHUiYmkKTSI.jpg?size=1818x606&quality=95&crop=0,0,1590,530&sign=040faf8b57e7ce538287c0fb07a6cf07&type=cover_group" alt="Баннер" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <!-- Секция "Последние посты из ВКонтакте" -->
+    <section class="hero">
+        <h1 style="color: rgb(0, 0, 0)">Последние посты из ВКонтакте</h1>
+
+        <!-- Кнопки для выбора сортировки -->
+        <div class="sort-buttons" style="margin-bottom: 20px;">
+            <a href="/vk-posts?sort_by=default" class="sort-btn {% if sort_by == 'default' %}active{% endif %}">
+                По умолчанию
+            </a>
+            <a href="/vk-posts?sort_by=likes" class="sort-btn {% if sort_by == 'likes' %}active{% endif %}">
+                Лайкам
+            </a>
+            <a href="/vk-posts?sort_by=reposts" class="sort-btn {% if sort_by == 'reposts' %}active{% endif %}">
+                Репостам
+            </a>
+            <a href="/vk-posts?sort_by=comments" class="sort-btn {% if sort_by == 'comments' %}active{% endif %}">
+                Комментариям
+            </a>
+        </div>
+
+        <!-- Отображение текущей сортировки -->
+        {% if sort_by != "default" %}
+            <p class="current-sort" style="margin-bottom: 20px;">
+                Текущая сортировка: 
+                {% if sort_by == "likes" %}Самые залайканные
+                {% elif sort_by == "reposts" %}Самые репостнутые
+                {% elif sort_by == "comments" %}Самые комментируемые
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <!-- Лента постов -->
+        <div class="post-feed">
+            {% for post in posts %}
+                <div class="post-item">
+                    <!-- Подпись под постом -->
+                    {% if post.text %}
+                        <div class="post-caption">
+                            <p>{{ post.text|safe }}</p>
+                        </div>
+                    {% endif %}
+
+                    <!-- Изображения из поста -->
+                    {% if post.attachments %}
+                        <div class="post-images">
+                            {% if post.attachments|length == 1 %} <!-- Одно изображение -->
+                                <img src="{{ post.attachments[0].photo.sizes[-1].url }}" alt="Post image" class="post-image single-image">
+                            {% elif post.attachments|length > 1 %} <!-- Несколько изображений -->
+                                <div class="image-row">
+                                    {% for attachment in post.attachments %}
+                                        {% if attachment.type == 'photo' %}
+                                            <img src="{{ attachment.photo.sizes[-1].url }}" alt="Post image" class="post-image pair-image">
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    <!-- Метрики -->
+                    <div class="post-metrics">
+                        <span>Лайки: {{ post.likes }}</span> | 
+                        <span>Комментарии: {{ post.comments }}</span> | 
+                        <span>Репосты: {{ post.reposts }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
