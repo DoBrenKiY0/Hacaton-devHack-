@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
     <section class="hero">
-        <h1 style="color: rgb(0, 0, 0)">Telegram-бот для анализа мемов</h1>
+        <h1>Telegram-бот для анализа мемов</h1>
 
         <!-- Основная информация о боте -->
-        <div class="bot-info">
+        <div class="bot-info animated-card">
             <div class="bot-icon">
                 <i class="fa-brands fa-telegram fa-3x"></i> <!-- Иконка Telegram -->
             </div>
@@ -20,5 +20,183 @@
                 <i class="fa-brands fa-telegram"></i> Перейти к боту
             </a>
         </div>
+
+        <!-- Островок с описанием назначения бота -->
+        <div class="purpose-card animated-card">
+            <div class="purpose-icon">
+                <i class="fa-solid fa-chart-line fa-2x"></i> <!-- Иконка для профессионализма -->
+            </div>
+            <h2>Профессиональный инструмент для анализа мемов</h2>
+            <p>
+                Наш бот — это не просто развлечение, а мощный инструмент для профессионалов:
+            </p>
+            <ul>
+                <li><b>Маркетологи</b> — анализируйте тренды и вовлеченность аудитории.</li>
+                <li><b>Контент-мейкеры</b> — создавайте актуальный контент на основе анализа мемов.</li>
+                <li><b>Исследователи</b> — изучайте культурные и социальные тренды через мемы.</li>
+                <li><b>PR-специалисты</b> — отслеживайте упоминания брендов в мемах.</li>
+            </ul>
+            <p>
+                Используйте <b>@ana_mem_bot</b> для повышения эффективности вашей работы!
+            </p>
+        </div>
     </section>
+
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Анимация для карточек */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated-card {
+            opacity: 0; /* Начальное состояние для анимации */
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .bot-info {
+            animation-delay: 0.2s; /* Задержка для первой карточки */
+        }
+
+        .purpose-card {
+            animation-delay: 0.4s; /* Задержка для второй карточки */
+        }
+
+        /* Основная информация о боте */
+        .bot-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bot-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .bot-icon {
+            margin-bottom: 15px;
+            color: #0088cc; /* Цвет иконки Telegram */
+        }
+
+        .bot-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .bot-info ul {
+            text-align: left;
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .bot-info ul li {
+            margin-bottom: 10px;
+        }
+
+        .bot-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0088cc, #00aced);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            margin-top: 15px;
+        }
+
+        .bot-link:hover {
+            background: linear-gradient(135deg, #00aced, #0088cc);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Островок с описанием назначения бота */
+        .purpose-card {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .purpose-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .purpose-icon {
+            margin-bottom: 15px;
+            color: #ffcc00; /* Цвет иконки */
+        }
+
+        .purpose-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .purpose-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .purpose-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .purpose-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .purpose-card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ffcc00; /* Цвет маркера */
+            font-size: 1.2em;
+        }
+
+        .purpose-card ul li b {
+            color: #ffcc00; /* Цвет для акцентов */
+        }
+    </style>
 {% endblock %}
