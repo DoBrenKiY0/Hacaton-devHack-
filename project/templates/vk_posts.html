@@ -1,33 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
     <!-- Баннер (полностью картинка) -->
-    <div style="width: 100%; height: 300px; overflow: hidden;">
-        <img src="https://sun1-97.userapi.com/impf/MQcDTInaIaAfXqSZil8va7oe-8cgX_uBcVI3pQ/XHUiYmkKTSI.jpg?size=1818x606&quality=95&crop=0,0,1590,530&sign=040faf8b57e7ce538287c0fb07a6cf07&type=cover_group" alt="Баннер" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="banner">
+        <img src="https://sun1-97.userapi.com/impf/MQcDTInaIaAfXqSZil8va7oe-8cgX_uBcVI3pQ/XHUiYmkKTSI.jpg?size=1818x606&quality=95&crop=0,0,1590,530&sign=040faf8b57e7ce538287c0fb07a6cf07&type=cover_group" alt="Баннер">
     </div>
 
     <!-- Секция "Последние посты из ВКонтакте" -->
     <section class="hero">
-        <h1 style="color: rgb(0, 0, 0)">Последние посты из ВКонтакте</h1>
+        <h1>Последние посты из ВКонтакте</h1>
 
         <!-- Кнопки для выбора сортировки -->
-        <div class="sort-buttons" style="margin-bottom: 20px;">
-            <a href="/vk-posts?sort_by=default" class="sort-btn {% if sort_by == 'default' %}active{% endif %}">
-                По умолчанию
-            </a>
-            <a href="/vk-posts?sort_by=likes" class="sort-btn {% if sort_by == 'likes' %}active{% endif %}">
-                Лайкам
-            </a>
-            <a href="/vk-posts?sort_by=reposts" class="sort-btn {% if sort_by == 'reposts' %}active{% endif %}">
-                Репостам
-            </a>
-            <a href="/vk-posts?sort_by=comments" class="sort-btn {% if sort_by == 'comments' %}active{% endif %}">
-                Комментариям
-            </a>
+        <div class="sort-buttons">
+            <a href="/vk-posts?sort_by=default" class="sort-btn {% if sort_by == 'default' %}active{% endif %}">По умолчанию</a>
+            <a href="/vk-posts?sort_by=likes" class="sort-btn {% if sort_by == 'likes' %}active{% endif %}">Лайкам</a>
+            <a href="/vk-posts?sort_by=reposts" class="sort-btn {% if sort_by == 'reposts' %}active{% endif %}">Репостам</a>
+            <a href="/vk-posts?sort_by=comments" class="sort-btn {% if sort_by == 'comments' %}active{% endif %}">Комментариям</a>
         </div>
 
         <!-- Отображение текущей сортировки -->
         {% if sort_by != "default" %}
-            <p class="current-sort" style="margin-bottom: 20px;">
+            <p class="current-sort">
                 Текущая сортировка: 
                 {% if sort_by == "likes" %}Самые залайканные
                 {% elif sort_by == "reposts" %}Самые репостнутые
@@ -64,14 +56,161 @@
                         </div>
                     {% endif %}
 
-                    <!-- Метрики -->
+                    <!-- Метрики с эмодзи -->
                     <div class="post-metrics">
-                        <span>Лайки: {{ post.likes }}</span> | 
-                        <span>Комментарии: {{ post.comments }}</span> | 
-                        <span>Репосты: {{ post.reposts }}</span>
+                        <span>❤️ {{ post.likes }}</span> |  
+                        <span>💬 {{ post.comments }}</span> | 
+                        <span>🔁 {{ post.reposts }}</span>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </section>
+
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Кнопки сортировки */
+        .sort-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sort-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sort-btn:hover {
+            background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Новый цвет при наведении */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .sort-btn.active {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Текущая сортировка */
+        .current-sort {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Лента постов */
+        .post-feed {
+            display: grid;
+            gap: 20px;
+        }
+
+        .post-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-caption p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .post-images {
+            margin-top: 15px;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .post-image:hover {
+            transform: scale(1.02);
+        }
+
+        .single-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .pair-image {
+            flex: 1;
+            max-width: calc(50% - 5px);
+            height: auto;
+        }
+
+        /* Метрики с эмодзи */
+        .post-metrics {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #555;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .post-metrics span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
 {% endblock %}
