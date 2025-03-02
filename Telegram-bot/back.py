@@ -551,11 +551,78 @@ def text_com():
         else:
             return f"пост без текста, количество комментариев: {f}"
         
-def analiz(post_id='-112709585_717575'):
+def analiz(post_id):
     vk_session = vk_api.VkApi(token=key)
     vk = vk_session.get_api()
+    try:
+        # Получаем информацию о посте
+        post = vk.wall.getById(posts=post_id)[0]  # Метод возвращает список постов
+        # Возвращаем количество репостов
+        f_rep =  post['reposts']['count']
+    except vk_api.exceptions.ApiError as e:
+        print(f"Ошибка при получении поста: {e}")
+        return None
+    except KeyError:
+        print("Пост не содержит информации о репостах.")
+        return None
+
+    try:
+        # Получаем информацию о посте
+        post = vk.wall.getById(posts=post_id)[0]  # Метод возвращает список постов
+        # Возвращаем количество репостов
+        f_com =  post['comments']['count']
+    except vk_api.exceptions.ApiError as e:
+        print(f"Ошибка при получении поста: Паблик закрыл доступ к своим постам")
+        return None
+    except KeyError:
+        print("Пост не содержит информации о комментах.")
+        return None
+
+    try:
+        # Получаем информацию о посте
+        post = vk.wall.getById(posts=post_id)[0]  # Метод возвращает список постов
+        # Возвращаем количество репостов
+        f_like =  post['likes']['count']
+    except vk_api.exceptions.ApiError as e:
+        print(f"Ошибка при получении поста: {e}")
+        return None
+    except KeyError:
+        print("Пост не содержит информации о лайках.")
+        return None
+    
+    try:
+        # Получаем информацию о посте
+        post = vk.wall.getById(posts=post_id)[0]  # Метод возвращает список постов
+        # Возвращаем количество репостов
+        f_v = post.get('views', {}).get('count', 0)
+    except vk_api.exceptions.ApiError as e:
+        print(f"Ошибка при получении поста: {e}")
+        return None
+    except KeyError:
+        print("Пост не содержит информации о просмотрах.")
+        return None
+    return f'Просмотры: {f_v}, лайки: {f_like}, Комменты: {f_com}, Репосты: {f_rep}'
 
 
+def an_photo(post_id):
+    vk_session = vk_api.VkApi(token=key)
+    vk = vk_session.get_api()
+    try:
+        post = vk.wall.getById(posts=post_id)[0]  # Метод возвращает список постов
+    except vk_api.exceptions.ApiError as e:
+        print(f"Ошибка при получении поста: {e}")
+        post = None
+
+    if post and 'attachments' in post:
+        # Проходим по всем вложениям
+        for attachment in post['attachments']:
+            # Если вложение — это фото
+            if attachment['type'] == 'photo':
+                # Получаем URL фотографии с максимальным размером
+                photo_url = attachment['photo']['sizes'][-1]['url']
+    else:
+        return "В посте нет вложений с фотографиями."
+    return photo_url
 
 
 x = the_best()
@@ -570,3 +637,5 @@ r1 = reposts()
 r2 = text_reposts()
 k1 = com()
 k2 = text_com()
+an = analiz
+ph = an_photo
