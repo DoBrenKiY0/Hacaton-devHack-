@@ -18,4 +18,3 @@ inline = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Самые залайканные', callback_data='lover')],
     [InlineKeyboardButton(text='Самые закомментированные', callback_data='byte'), InlineKeyboardButton(text='Чаще всего репостят', callback_data='reposter')]
 ])
-
