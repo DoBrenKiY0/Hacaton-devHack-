@@ -2,7 +2,7 @@ from aiogram import Router, F
 from aiogram.filters import CommandStart
 from aiogram.types import Message, CallbackQuery, URLInputFile
 from keyboards import main, main2
-from back import x, y, x2, y2, x3, y3, l1, l2, r1, r2, k1, k2
+from back import x, y, x2, y2, x3, y3, l1, l2, r1, r2, k1, k2, an, ph
 
 
 router = Router()
@@ -37,6 +37,8 @@ async def top_mem(message: Message):
     await message.answer(y3, reply_markup=main2)
 
 
+
+
 @router.message(F.text == 'Анализ поста (ручной режим)')
 async def start_cmd(message: Message):
     await message.answer('Отправьте id поста в вк')
@@ -52,7 +54,7 @@ async def eltern(message: Message):
     await message.answer('Я щас позвоню твоей маме и скажу, что ты балуешься!')
 
 
-@router.message(F.text == 'Рекрод лайков')
+@router.message(F.text == 'Рекорд лайков')
 async def li(message: Message):
     await message.answer_photo(l1)
     await message.answer(l2)
@@ -69,24 +71,18 @@ async def comm(message: Message):
     await message.answer_photo(k1)
     await message.answer(k2)
 
-# @router.callback_query(F.data == 'reposter')
-# async def cat(callback: CallbackQuery):
-#     await callback.answer('')
-#     await callback.message.answer('Тут будут мемы, кторое чаще всего репостят')
 
-
-# @router.callback_query(F.data == 'lover')
-# async def cat(callback: CallbackQuery):
-#     photo_url = l1
-#     photo = URLInputFile(photo_url)
-#     await callback.message.answer_photo(photo)
-#     await callback.message.answer(l2, reply_markup=inline)
-    
-
-# @router.callback_query(F.data == 'byte')
-# async def cat(callback: CallbackQuery):
-#     await callback.answer('')
-#     await callback.message.answer('Тут будут мемы, кторое чаще всего комментируют') 
+@router.message()
+async def message(message: Message):
+    user_text = message.text
+    if user_text.startswith('id-'):
+        try:
+            user_text = message.text
+            txt = user_text[2:]
+            await message.answer_photo(ph(txt))
+            await message.answer(an(txt))
+        except Exception as e:
+            await message.answer(f"Произошла ошибка: {e}")
 
 
 @router.message()
